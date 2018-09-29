@@ -1,0 +1,174 @@
+import React from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import { Icon, List, ListItem } from "react-native-elements";
+
+const transactions = [
+  {
+    payee: "The insurance company",
+    date: "09/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 1
+  },
+  {
+    payee: "The insurance company",
+    date: "10/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 2
+  },
+  {
+    payee: "The insurance company",
+    date: "11/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 3
+  },
+  {
+    payee: "The insurance company",
+    date: "12/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 4
+  },
+  {
+    payee: "The insurance company",
+    date: "09/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 1
+  },
+  {
+    payee: "The insurance company",
+    date: "10/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 2
+  },
+  {
+    payee: "The insurance company",
+    date: "11/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 3
+  },
+  {
+    payee: "The insurance company",
+    date: "12/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 4
+  },
+  {
+    payee: "The insurance company",
+    date: "09/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 1
+  },
+  {
+    payee: "The insurance company",
+    date: "10/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 2
+  },
+  {
+    payee: "The insurance company",
+    date: "11/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 3
+  },
+  {
+    payee: "The insurance company",
+    date: "12/15/18",
+    amount: "500.00",
+    category: "Insurance",
+    id: 4
+  }
+];
+
+const renderRow = ({ item }) => {
+  return (
+    <ListItem
+      title={item.payee}
+      subtitle={item.date}
+      rightTitle={item.amount}
+      hideChevron
+      titleContainerStyle={styles.PinItemTitle}
+    />
+  );
+};
+
+const Reports = () => (
+  <View style={styles.PinContainer}>
+    <View style={styles.PinHeader}>
+      <View style={styles.UtilityNav}>
+        <Icon name="chevron-left" type="font-awesome" size={30} />
+        <Icon name="heart" type="font-awesome" size={30} />
+        <Icon name="share" type="font-awesome" size={30} />
+        <Icon name="ellipsis-h" type="font-awesome" size={30} />
+      </View>
+      <View styles={styles.PinButtonContainer}>
+        <View style={styles.PinButton}>
+          <Icon name="pencil" type="font-awesome" color="#fff" />
+          <Text style={styles.PinButtonText}>Add</Text>
+        </View>
+      </View>
+    </View>
+
+    <View style={styles.PinContent}>
+      <FlatList
+        data={transactions}
+        renderItem={renderRow}
+        keyExtractor={item => item.id}
+      />
+    </View>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  PinContainer: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "#cecece",
+    alignItems: "stretch"
+  },
+  PinHeader: {
+    backgroundColor: "white",
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    padding: 8,
+    height: 76
+  },
+  UtilityNav: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    flex: 1 / 2
+  },
+  PinButton: {
+    flexDirection: "row",
+    backgroundColor: "red",
+    padding: 8,
+    borderRadius: 6,
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: 75
+  },
+  PinButtonText: {
+    color: "#fff"
+  },
+  PinButtonContainer: {
+    // flex: 3
+  },
+  PinContent: {
+    backgroundColor: "#fff",
+    flex: 1
+  },
+  PinItemTitle: {
+    width: 200
+  }
+});
+export default Reports;
